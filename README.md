@@ -1,4 +1,4 @@
-#
+# Technical test - Sudesh Kumar Yadav
 
 - Please note that I did not use any framework to keep code simple
 - Main source code is written in typescript.
@@ -17,9 +17,8 @@
 
 1. After starting the server, plz visit http://localhost:3000.
 2. You can run unit test `node build/game.test.js`.
-3. _ Please make sure server is running _. For benchmarks run `npm run benchmark`. I have used `autocannon` for bechmarking http service. It will display statatics of benchmark run by autocannon.
-4. On my machine I was able to make about 10req/sec for 10 sec for 10 concurrent connections without
-   any timeout errors.
+3. _ Please make sure server is running _. For benchmarks run `npm run benchmark`. I have used `autocannon` to benchmark http service. It will display statistics of benchmark.
+4. On my machine I was able to make around 10req/sec with 10 concurrent connections without any timeout errors.
 5. I have assumed that there will be an `\n` character at the end of output.
 
 ## When is it a good idea to not use NodeJs? Why?

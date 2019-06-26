@@ -4,12 +4,12 @@
   "devDependencies": {
     "@types/node": "^12.0.10",
     "autocannon": "^4.0.0",
-    "concurrently": "^4.1.0",
     "nodemon": "^1.19.1",
     "typescript": "^3.5.2"
   },
   "scripts": {
     "benchmark": "autocannon http://localhost:3000/game",
+    "build": "tsc",
     "start": "node build/index"
   }
 }

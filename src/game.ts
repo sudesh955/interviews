@@ -16,7 +16,7 @@ export class Game extends Readable {
   _read(_size: number) {
     const { max, lineWidth } = this;
     const size = _size - 8;
-    let cursor: number = this.cursor;
+    let cursor = this.cursor;
     let str: string = "";
     while (cursor <= max && str.length < size) {
       if (cursor % 28 === 0) {
