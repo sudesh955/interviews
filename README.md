@@ -6,7 +6,7 @@
 ## How to run
 
 1. Extract zip file.
-2. Open a terminal inside main folder.
+2. Open a terminal in main folder.
 3. Install node_modules by running `npm install` or `yarn`.
 4. Run `npm run build`.
 5. Make sure port 3000 is available on machine.
