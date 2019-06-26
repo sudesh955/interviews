@@ -1,10 +1,5 @@
 import { parse } from "./invoice";
 
-/**
- * unit tests for parse functions
- * I did not use a testing framework for this simple case.
- */
-
 const testStrings = [
   `
  _  _  _        _     _  _ 

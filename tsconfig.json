@@ -6,6 +6,5 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "allowJs": true
-  },
-  "compileOnSave": true
+  }
 }

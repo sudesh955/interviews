@@ -10,6 +10,7 @@ function requestListener(req: IncomingMessage, res: OutgoingMessage) {
   if (url.startsWith("/game")) {
     game(req, res);
   } else if (url.startsWith("/invoice")) {
+    invoice(req, res);
   } else {
     res.setHeader("content-type", "text/html");
     createReadStream(join(process.cwd(), "index.html")).pipe(res);

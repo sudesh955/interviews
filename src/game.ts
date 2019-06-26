@@ -1,18 +1,21 @@
 import { IncomingMessage, OutgoingMessage } from "http";
 import { Readable } from "stream";
 
-class Game extends Readable {
+export class Game extends Readable {
   max: number;
   cursor: number;
+  lineWidth: number;
 
-  constructor(max: number) {
+  constructor(max: number, lineWidth: number) {
     super();
     this.max = max;
     this.cursor = 1;
+    this.lineWidth = lineWidth;
   }
 
-  _read(size: number) {
-    const max = this.max;
+  _read(_size: number) {
+    const { max, lineWidth } = this;
+    const size = _size - 8;
     let cursor: number = this.cursor;
     let str: string = "";
     while (cursor <= max && str.length < size) {
@@ -25,9 +28,9 @@ class Game extends Readable {
       } else {
         str += cursor;
       }
-      if (cursor % 1000 === 0 || cursor === max) {
+      if (cursor % lineWidth === 0 || cursor === max) {
         str += "\n";
-      } else {
+      } else if (cursor !== max) {
         str += ",";
       }
       cursor++;
@@ -42,5 +45,6 @@ class Game extends Readable {
 }
 
 export function game(req: IncomingMessage, res: OutgoingMessage) {
-  new Game(1e6).pipe(res);
+  const match = req.url.match(/(\d+)/);
+  new Game(match === null ? 1e6 : parseInt(match[1]), 1000).pipe(res);
 }

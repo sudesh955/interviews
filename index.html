@@ -7,6 +7,36 @@
     <title>So node test</title>
   </head>
   <body>
-    <p><a href="/game">Game</a></p>
+    <p>
+      <input id="count" type="number" placeholder="count upto (1000000)" />
+      <button onclick="playGame()">Game</button>
+    </p>
+    <p>
+      <input id="invoice-file" type="file" />
+      <button onclick="parseInvoice()">Parse Invoice</button>
+    </p>
+    <pre id="output"></pre>
+    <script>
+      function playGame() {
+        window.location.href =
+          "/game/" + document.getElementById("count").value;
+      }
+
+      function parseInvoice() {
+        const fileInput = document.getElementById("invoice-file");
+        if (fileInput.files.length === 0) {
+          alert("Please select a file");
+          return;
+        }
+        fetch("/invoice", {
+          method: "post",
+          body: fileInput.files[0]
+        })
+          .then(response => response.text())
+          .then(
+            output => (document.getElementById("output").textContent = output)
+          );
+      }
+    </script>
   </body>
 </html>
